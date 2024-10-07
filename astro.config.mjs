@@ -14,6 +14,7 @@ export default defineConfig({
 			applyBaseStyles: true,
 		}),
 	],
+	trailingSlash: "always",
 	adapter: node({
 		mode: "standalone",
 	}),
