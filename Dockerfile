@@ -20,7 +20,8 @@ COPY --from=install /temp/dev/node_modules node_modules
 COPY . .
 
 ENV NODE_ENV=production
-RUN bun run build
+RUN --mount=type=secret,id=astro_key,env=ASTRO_KEY \
+  bun run build
 
 # copy production dependencies and source code into final image
 FROM base AS runtime
